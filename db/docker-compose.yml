@@ -1,0 +1,18 @@
+version: '3.7'
+
+volumes:
+  data:
+
+services:
+  to-do-app-database:
+    container_name: to-do
+    image: "postgres:latest"
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: To-Do-App
+      POSTGRES_USER: nicolas
+      POSTGRES_PASSWORD: nicolas123
+    volumes:
+      - data:/var/lib/postgresql/data
