@@ -10,15 +10,19 @@ datasource db {
 model Task {
   id         Int      @id @default(autoincrement())
   task       String
-  Status     Boolean
   created_at DateTime @default(now())
+  doneStatus Boolean
+  list       List?    @relation(fields: [listId], references: [id])
+  listId     Int
 
   @@map("tasks")
 }
 
 model List {
-  id Int @id @default(autoincrement())
-  name String @unique
+  id         Int      @id @default(autoincrement())
+  name       String   @unique
+  created_at DateTime @default(now())
+  tasks      Task[]
 
   @@map("lists")
 }
