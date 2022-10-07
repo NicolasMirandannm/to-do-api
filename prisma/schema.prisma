@@ -13,7 +13,7 @@ model Task {
   created_at DateTime @default(now())
   doneStatus Boolean
   list       List?    @relation(fields: [listId], references: [id])
-  listId     Int
+  listId     Int?
 
   @@map("tasks")
 }

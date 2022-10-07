@@ -5,14 +5,21 @@ import { ValidatorTaskService } from "./ValidatorTask";
 export class UpdateTaskService {
 
     public async exec(req: Request) {
-        const { task, doneStatus } = req.body;
+        const { id, task, doneStatus } = req.body;
 
-        const validateTask = new ValidatorTaskService();
-        const validTask = await validateTask.exec(task);
+        const validateTask = await prisma.task.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (!validateTask) {
+            throw new Error("the task does not exists!");
+        }
 
         const updatedTask = await prisma.task.update({
             where: {
-                id: validTask.id
+                id: validateTask.id
             },
             data: {
                 task: task,
