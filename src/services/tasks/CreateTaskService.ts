@@ -3,13 +3,13 @@ import prisma from "../../database/PrismaService";
 
 export class CreateTaskService {
 
-    public async exec(req: Request, res:Response) {
+    public async exec(req: Request) {
         const { task , status } = req.body
 
         const taskCreated = await prisma.task.create({
             data: {
                 task: task,
-                Status: status
+                doneStatus: status
             }
         })
         return taskCreated;
