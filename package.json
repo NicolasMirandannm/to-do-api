@@ -4,7 +4,7 @@
   "description": "To-Do App back-end com typeScript",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "start:dev": "npx prisma migrate dev && ts-node-dev --respawn --transpile-only src/server.ts"
   },
   "author": "Nicolas Leonardo Miranda Lima",
   "license": "ISC",
