@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import { CreateTaskService } from "../services/tasks/CreateTaskService";
-import { DeleteTaskService } from "../services/tasks/DeleteTaskService";
-import { FindTaskService } from "../services/tasks/FindTaskService";
-import { ListAllTasksService } from "../services/tasks/ListAllTasksService";
-import { UpdateTaskService } from "../services/tasks/UpdateTaskService";
+import { CreateTask } from "../services/tasks/CRUD/CreateTask";
+import { DeleteTask } from "../services/tasks/CRUD/DeleteTask";
+import { FindOneTask } from "../services/tasks/CRUD/FindTask";
+import { ListAllTasks } from "../services/tasks/CRUD/ListAllTasks";
+import { UpdateTask } from "../services/tasks/CRUD/UpdateTask";
 
 export class TaskController {
 
     public async create(req: Request, res: Response) {
-        const task = new CreateTaskService();
+        const task = new CreateTask();
 
         const taskRes = await task.exec(req);
 
@@ -16,7 +16,7 @@ export class TaskController {
     }
 
     public async update(req: Request, res: Response) {
-        const taskUpdate = new UpdateTaskService();
+        const taskUpdate = new UpdateTask();
 
         const updateRes = await taskUpdate.exec(req);
 
@@ -24,7 +24,7 @@ export class TaskController {
     }
 
     public async findAll(req: Request, res: Response) {
-        const listAllTasks = new ListAllTasksService()
+        const listAllTasks = new ListAllTasks()
 
         const findAllRes = await listAllTasks.exec();
         
@@ -32,7 +32,7 @@ export class TaskController {
     }
 
     public async find(req: Request, res: Response) {
-        const findOne = new FindTaskService();
+        const findOne = new FindOneTask();
 
         const findRes = await findOne.exec(req);
 
@@ -40,7 +40,7 @@ export class TaskController {
     }
 
     public async delete(req: Request, res: Response) {
-        const deleteTask = new DeleteTaskService();
+        const deleteTask = new DeleteTask();
 
         const deleteRes = await deleteTask.exec(req);
 

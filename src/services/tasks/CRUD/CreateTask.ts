@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import prisma from "../../database/PrismaService";
+import prisma from "../../../database/PrismaService";
 
-export class CreateTaskService {
+export class CreateTask {
 
     public async exec(req: Request) {
         const { task , doneStatus } = req.body

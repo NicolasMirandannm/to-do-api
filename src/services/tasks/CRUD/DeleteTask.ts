@@ -1,8 +1,8 @@
 import { Request } from "express";
-import prisma from "../../database/PrismaService";
-import { ValidatorTaskService } from "./ValidatorTask";
+import prisma from "../../../database/PrismaService";
+import { ValidatorTaskService } from "../ValidatorTask";
 
-export class DeleteTaskService {
+export class DeleteTask {
 
     public async exec(req: Request) {
         const { task } = req.body;

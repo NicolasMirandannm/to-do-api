@@ -1,8 +1,8 @@
 import { Request } from "express";
-import prisma from "../../database/PrismaService";
-import { ValidatorTaskService } from "./ValidatorTask";
+import prisma from "../../../database/PrismaService";
+import { ValidatorTaskService } from "../ValidatorTask";
 
-export class UpdateTaskService {
+export class UpdateTask {
 
     public async exec(req: Request) {
         const { id, task, doneStatus } = req.body;
