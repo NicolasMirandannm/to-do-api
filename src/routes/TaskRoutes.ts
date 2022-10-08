@@ -15,7 +15,7 @@ taskRoutes.put("/task/update", resolver(taskController.update))
 
 taskRoutes.delete("/task/delete", resolver(taskController.delete))
 
-taskRoutes.get("/task/findOne", resolver(taskController.find))
+taskRoutes.get("/task/find", resolver(taskController.find))
 
 taskRoutes.get("/task/findAll", resolver(taskController.findAll))
 
