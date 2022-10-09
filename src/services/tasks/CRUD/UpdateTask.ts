@@ -1,6 +1,5 @@
 import { Request } from "express";
 import prisma from "../../../database/PrismaService";
-import { ValidatorTaskService } from "../ValidatorTask";
 
 export class UpdateTask {
 
@@ -23,7 +22,7 @@ export class UpdateTask {
             },
             data: {
                 task: task,
-                doneStatus: doneStatus
+                doneStatus: doneStatus,
             }
         });
 

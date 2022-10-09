@@ -1,6 +1,6 @@
 import prisma from "../../database/PrismaService";
 
-export class ValidatorTaskService {
+export class ValidatorTask {
 
     public async exec(task: string) {
 
