@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { AddTaskInList } from "../services/task-in-list/addTaskInList";
 import { RemoveTaskFromList } from "../services/task-in-list/RemoveTaskFromList";
+import { AddTaskInList } from "../services/task-in-list/AddTaskInList";
 
 
 export class TaskAndListController {

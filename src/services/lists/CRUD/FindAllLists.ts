@@ -5,6 +5,13 @@ export class FindAllLists {
 
     public async exec(): Promise<List[]> {
         
-        return await prisma.list.findMany({});
+        return await prisma.list.findMany({
+            select: {
+                id: true,
+                name: true,
+                created_at: true,
+                tasks: true
+            }
+        });
     }
 }

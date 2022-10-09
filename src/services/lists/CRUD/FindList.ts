@@ -10,6 +10,12 @@ export class FindOneList {
         const uniqueList = await prisma.list.findFirst({
             where: {
                 name
+            },
+            select: {
+                id: true,
+                name: true,
+                created_at: true,
+                tasks: true,
             }
         })
 
