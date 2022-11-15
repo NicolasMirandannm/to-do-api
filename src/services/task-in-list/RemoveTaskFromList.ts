@@ -5,8 +5,8 @@ import prisma from "../../database/PrismaService";
 export class RemoveTaskFromList {
 
     public async exec(req: Request): Promise<Task> {
-        const { task, list } = req.body;
         
+        const task = req.body;
         const remove = await prisma.task.update({
             where: {
                 id: task.id

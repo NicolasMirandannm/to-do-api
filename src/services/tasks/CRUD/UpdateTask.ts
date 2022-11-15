@@ -23,6 +23,9 @@ export class UpdateTask {
             data: {
                 task: task,
                 doneStatus: doneStatus,
+            },
+            include: {
+                list: true
             }
         });
 

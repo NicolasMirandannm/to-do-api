@@ -5,7 +5,7 @@ import prisma from "../../database/PrismaService";
 export class RemoveAllTaskFromList {
 
     public async exec(req: Request): Promise<List> {
-
+        
         const { list } = req.body;
 
         await prisma.task.updateMany({
