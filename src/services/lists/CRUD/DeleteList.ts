@@ -8,6 +8,7 @@ export class DeleteList {
     public async exec(req: Request): Promise<String> {
 
         const { name }= req.body;
+        console.log(name)
 
         const validateList = new ValidateList();
         const validList = await validateList.exec(name);

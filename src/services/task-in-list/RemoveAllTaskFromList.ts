@@ -8,9 +8,19 @@ export class RemoveAllTaskFromList {
         
         const { list } = req.body;
 
+        const listExistent = await prisma.list.findFirst({
+            where: {
+                name: list
+            }
+        })
+
+        if(!listExistent) {
+            throw new Error('Lista não existe!');
+        }
+
         await prisma.task.updateMany({
             where: {
-                listId: list.id
+                listId: listExistent.id
             },
             data: {
                 listId: null
@@ -19,7 +29,7 @@ export class RemoveAllTaskFromList {
 
         const listUpdated = await prisma.list.findFirst({
             where: {
-                id: list.id
+                id: listExistent.id
             },
             select: {
                 id: true,
