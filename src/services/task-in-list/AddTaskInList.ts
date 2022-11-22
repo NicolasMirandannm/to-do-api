@@ -11,8 +11,10 @@ export class AddTaskInList {
         const validateList = new ValidateList();
 
         const { task, list } = req.body;
+        console.log(task)
+        console.log(list)
 
-        const validTask = await validateTask.exec(task.name);
+        const validTask = await validateTask.exec(task.task);
         const validList = await validateList.exec(list.name);
 
         const taskAddInList = await prisma.task.update({
